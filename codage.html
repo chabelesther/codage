@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>César Chiffreur/Déchiffreur</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Découvre le chiffrement César et transforme chaque message en énigme captivante! ✨🔐📜 #ChiffrementCesar #AventureSecrete">
+  <meta name="keywords" content="Chiffrement César, Cryptographie, Sécurité, Enigme, Aventure Secrète">
+  <meta name="author" content="BOSSA Chabel">
+  <meta name="robots" content="index, follow"> <!-- Indique aux moteurs de recherche d'indexer et de suivre les liens de la page -->
+
+  <!-- Balises Open Graph pour un meilleur partage sur les réseaux sociaux -->
+  <meta property="og:title" content="Chiffrement César - Aventure Secrète">
+  <meta property="og:description" content="Découvre le chiffrement César et transforme chaque message en énigme captivante! ✨🔐📜">
+  <meta property="og:image" content="https://o.remove.bg/downloads/365dd09c-8eb3-4b20-99a4-7b18a393329e/cesar2-removebg-preview.png">
+  <meta property="og:url" content="URL_DE_TON_SITE">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="shortcut icon" href="cesar-i.png" type="image/png">
+  <!-- Inclusion de Bootstrap CSS (version 5.3.0) -->
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="../bootstrap-5.3.2-dist/bootstrap-5.3.2-dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+  <!-- Inclusion de TypeIt -->
+  <script src="https://cdn.jsdelivr.net/npm/typeit/dist/typeit.min.js"></script>
+   
+</head>
+
+<body>
+
+  <header class="m-1 py-2">
+    <h1>César Chiffreur/Déchiffreur</h1>
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      Comment ça marche?
+    </button>
+  </header>
+
+  <p class="text-center">Entrez la clé : <input type="number" id="key" value="1" required></p>
+  <textarea id="message" rows="5" cols="50" placeholder="Entrez le message"></textarea>
+
+  <div class="btn-container d-flex  m-2 p-2 ">
+    <button onclick="applyCipher('encrypt')">Chiffrer</button>
+    <button onclick="applyCipher('decrypt')">Déchiffrer</button>
+  </div>
+  <hr>
+  <label for="result">Le message déchiffré/chiffré est :</label>
+  <textarea id="result"></textarea>
+  <div class="option ">
+    <div id="options">
+      <label for="caseConversion">Convertir en : </label>
+      <select id="caseConversion">
+        <option value="default">Pas de conversion</option>
+        <option value="uppercase">Majuscules uniquement</option>
+        <option value="lowercase">Minuscules uniquement</option>
+      </select>
+    </div>
+    <div class="share m-2">
+      <p>Partager votre message : <a onclick="shareOnWhatsApp()"><i class="fab fa-whatsapp"></i></a>
+        <a id="shareFacebook" onclick="shareOnFacebook()"><i class="fab fa-facebook"></i></a></p>
+    </div>
+    <button id="copyButton" onclick="copyToClipboard()"></button>
+  </div>
+
+
+  <div class="modal shadow fade custom-zoom-slide" id="exampleModal" tabindex="-1"
+  aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h4 class="modal-title" id="exampleModalLabel">Règle du jeu</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal"
+                      aria-label="Fermer"></button>
+          </div>
+          <div class="modal-body modal-dialog-scrollable modal-lg">
+            
+              <section id="how-to-use">
+                <h2>Explore le monde du chiffrement César!</h2>
+                <p>Bienvenue dans l'univers du chiffrement César! Transforme la sécurité en une aventure palpitante avec ce programme simple et amusant :</p>
+              
+                <ol>
+                  <li>
+                    <p><strong>Choisis ta clé magique :</strong> C'est comme choisir le niveau de difficulté d'une quête! Entres un nombre, ta clé, et découvre le pouvoir du chiffrement.</p>
+                  </li>
+              
+                  <li>
+                    <p><strong>Rédige ton message secret :</strong> Sois créatif! Utilise des majuscules, des minuscules, et même des emojis. Laisse libre cours à ton imagination!</p>
+                  </li>
+              
+                  <li>
+                    <p><strong>Lance le sortilège :</strong> Appuie sur "Chiffrer" et regarde ta phrase se métamorphoser en un mystère captivant. Ou "Déchiffrer" pour révéler les secrets cachés.</p>
+                  </li>
+              
+                  <li>
+                    <p><strong>Comprends le principe du déchiffrement de César :</strong> Lors du déchiffrement, chaque lettre est remplacée par une autre précédente grâce à un décalage dans l'alphabet.</p>
+                    <p><em>Exemple :</em> Déchiffrer "Bonjour" avec un décalage de 3. Pour B, regarder trois lettres avant : Y. Pour O, boucler l'alphabet : N, M, L. "Bonjour" se déchiffre "Ymnqjy".</p>
+                    <p>Une méthode plus mathématique : noter A=0, B=1, …, Z=25, soustraire une constante (le décalage) et conserver le résultat modulo 26 pour obtenir le texte déchiffré.</p>
+                    <p><em>Exemple :</em> B=1, soustraire le décalage 1-3=-2 et retrouver -2 mod 26 = 24, donc B se décode X. O=14, soustraire 14-3=11, donc O se décode L. "Bonjour" se déchiffre "Xlknrjy".</p>
+                  </li>
+                  <li>
+                    <p><strong>Fonctionnalité supplémentaire disponible :</strong> Après avoir chiffré/déchiffré ton messge , tu peux facilement le partager par message sur whatsapp ou Facebook  , tu peux également le copier en cliquant sur le bouton <em>Copier</em>. De plus tu peux convertir en <em>Minuscule</em> ou <em>Majuscule</em> en sélection le selecteur déroulant</p>
+                  </li>
+                </ol>
+              
+                <h2>Laisse parler ton imagination!</h2>
+                <p>Avec ce programme, chaque message devient une énigme à résoudre. Par exemple, essaie de chiffrer "Bonjour les amis!" avec une clé de 3, et découvre le résultat. Ensuite, défie tes amis de le déchiffrer!</p>
+                <p>Transforme le quotidien en aventure! La clé par défaut est 1, mais n'hésite pas à la changer pour rendre tes messages encore plus mystérieux!</p>
+                <div class="">
+                  <p>Partage l'aventure du chiffrement César avec tes amis!</p>
+                  <button class="btn " onclick="onFacebook()"><i class="fab fa-facebook-square"></i> Facebook</button>
+                  <button class="btn " onclick="onWhatsapp()"><i class="fab fa-whatsapp-square"></i> WhatsApp</button>
+                </div>
+              </section>
+            
+          </div>
+      </div>
+  </div>
+</div>
+  <!-- Ajout de la modalité pour le partage  -->
+  <div class="modal fade" id="shareModal" tabindex="-1" aria-labelledby="shareModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="shareModalLabel">Partage l'aventure!</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
+        </div>
+        <div class="modal-body">
+          <p>Partage l'aventure du chiffrement César avec tes amis!</p>
+          <button class="btn " onclick="onFacebook()"><i class="fab fa-facebook-square"></i> Facebook</button>
+          <button class="btn " onclick="onWhatsapp()"><i class="fab fa-whatsapp-square"></i> WhatsApp</button>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+
+  <script>
+    function applyCipher(operation) {
+      const key = parseInt(document.getElementById("key").value);
+      const message = document.getElementById("message").value;
+      const resultTextarea = document.getElementById("result");
+      const caseConversion = document.getElementById("caseConversion").value;
+      if (message === "") {
+        alert("Veuillez entrer un  avant de cliquer sur chiffrer ou déchiffrer.");
+        return;
+      }
+      let result = "";
+
+      for (let i = 0; i < message.length; i++) {
+        let charCode = message.charCodeAt(i);
+
+        if (charCode >= 65 && charCode <= 90) {
+          // Uppercase letters
+          result += String.fromCharCode(applyOperation(charCode, 65, key, operation));
+        } else if (charCode >= 97 && charCode <= 122) {
+          // Lowercase letters
+          result += String.fromCharCode(applyOperation(charCode, 97, key, operation));
+        } else {
+          // Non-alphabetic characters
+          result += applySpecialCharacter(charCode, key, operation);
+        }
+      }
+
+      if (caseConversion === 'uppercase') {
+        result = result.toUpperCase();
+      } else if (caseConversion === 'lowercase') {
+        result = result.toLowerCase();
+      }
+
+      resultTextarea.value = result;
+      document.querySelector('label').style.display = "block";
+      document.querySelector('#result').style.display = "block";
+      document.querySelector('#copyButton').style.display = "initial";
+      document.querySelector('.share').style.display = "flex";
+
+      // Vider le textarea avant l'animation
+      resultTextarea.value = ""; // vider le textarea
+
+      // Appel de la fonction TypeIt avec le texte du résultat
+      new TypeIt('#result', {
+        strings: [result],
+        speed: 50,
+        loop: false, // pas de répétition
+        cursor: true,
+        lifeLike: true,
+        align: "left",
+      }).go();
+
+    }
+
+    function applySpecialCharacter(charCode, key, operation) {
+      if (operation === 'encrypt') {
+        return String.fromCharCode((charCode + key + 65536) % 65536);
+      } else if (operation === 'decrypt') {
+        return String.fromCharCode((charCode - key + 65536) % 65536);
+      }
+    }
+
+    function copyToClipboard() {
+      const resultTextarea = document.getElementById("result");
+      resultTextarea.select();
+      document.execCommand("copy");
+      document.getElementById("copyButton").classList.toggle('active');
+    }
+
+    function applyOperation(charCode, base, key, operation) {
+      const shift = operation === 'encrypt' ? key : -key;
+      const resultCharCode = (charCode - base + shift + 26) % 26 + base;
+      return resultCharCode;
+    }
+
+
+
+    // ==========================sharing==========================
+   
+      // Fonction pour partager sur Facebook
+      function onFacebook() {
+        new bootstrap.Modal(document.getElementById('shareModal')).hide(); // Ferme la modalité après le partage
+      var message = encodeURIComponent("Découvre le chiffrement César et transforme chaque message en énigme captivante! ✨🔐📜 #ChiffrementCesar #AventureSecrete");
+      var url = encodeURIComponent(window.location.href);
+      window.open("https://www.facebook.com/sharer/sharer.php?u=" + url + "&quote=" + message, "_blank");
+      localStorage.setItem('shared', 'true'); // Stocke la variable 'shared' comme true dans le stockage local
+    }
+
+    // Fonction pour partager sur WhatsApp
+    function onWhatsapp() {
+      new bootstrap.Modal(document.getElementById('shareModal')).hide(); // Ferme la modalité après le partage
+      var message = encodeURIComponent("Découvre le chiffrement César et transforme chaque message en énigme captivante! ✨🔐📜 #ChiffrementCesar #AventureSecrete");
+      var url = encodeURIComponent(window.location.href);
+      window.open("https://wa.me/?text=" + message + "%20" + url, "_blank");
+      localStorage.setItem('shared', 'true'); // Stocke la variable 'shared' comme true dans le stockage local
+    }
+
+    // Fonction pour ouvrir la modalité à intervalles réguliers (toutes les 10 secondes ici)
+    setInterval(function() {
+      var hasShared = localStorage.getItem('shared');
+      if (hasShared !== 'true') {
+        var shareModal = new bootstrap.Modal(document.getElementById('shareModal'));
+        shareModal.show();
+      }
+    }, 24000); // 240 000 millisecondes = 4 min
+    //  ===================message partage ============================
+    function shareOnWhatsApp() {
+  // Récupération du résultat du chiffrement ou du déchiffrement
+  const result = document.getElementById("result").value;
+
+  // Vérifier si le résultat n'est pas vide
+  if (result.trim() !== "") {
+    // Construire le lien WhatsApp avec le message pré-rempli
+    const whatsappLink = `https://wa.me/?text=${encodeURIComponent(result)}`;
+
+    // Ouvre le lien dans une nouvelle fenêtre ou un nouvel onglet
+    window.open(whatsappLink, '_blank');
+  } else {
+    alert("Veuillez chiffrer ou déchiffrer un message avant de partager sur WhatsApp.");
+  }
+}
+
+function shareOnFacebook() {
+  // Récupérer le résultat du chiffrement ou du déchiffrement
+  const result = document.getElementById("result").value;
+
+  // Vérifier si le résultat n'est pas vide
+  if (result.trim() !== "") {
+    // Construire le lien Facebook avec le message pré-rempli
+    const facebookLink = `https://www.facebook.com/sharer/sharer.php?u=&quote=${encodeURIComponent(result)}`;
+
+    // Ouvrir le lien dans une nouvelle fenêtre ou un nouvel onglet
+    window.open(facebookLink, '_blank');
+  } else {
+    alert("Veuillez chiffrer ou déchiffrer un message avant de partager sur Facebook.");
+  }
+}
+
+
+// Fonction qui redimensionne le textarea
+setInterval(function resize() {
+      var textarea = document.getElementById('result');
+      // Réinitialiser la hauteur pour recalculer correctement
+      textarea.style.height = 'auto';
+      // Ajuster la hauteur du textarea en fonction de la hauteur du contenu
+      textarea.style.height = textarea.scrollHeight + 2 + 'px';
+    }, 500); 
+  </script>
+  <!-- Inclusion de Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+
+  <script src="../bootstrap-5.3.2-dist/bootstrap-5.3.2-dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
