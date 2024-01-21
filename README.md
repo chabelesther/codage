@@ -9,9 +9,15 @@
 - *Partagez des messages cryptiques et défiez vos amis.*
 
 **Comment Ça Marche:**
-1. *Saisissez votre message.*
-2. *Choisissez le décalage pour le chiffrement.*
-3. *Explorez l'énigme résultante!*
+Le fonctionnement de l'algorithme est le suivant :
+
+1. L'utilisateur entre une clé (un nombre entier) et un message dans les champs correspondants.
+2.Lorsque l'utilisateur clique sur le bouton "Chiffrer", le message est chiffré en utilisant la clé spécifiée. Chaque lettre du message est décalée vers la droite dans l'alphabet en fonction de la clé.
+3. Lorsque l'utilisateur clique sur le bouton "Déchiffrer", le message chiffré est déchiffré en utilisant la clé spécifiée. Chaque lettre du message chiffré est décalée vers la gauche dans l'alphabet en fonction de la clé.
+4.Le résultat du chiffrement ou du déchiffrement est affiché dans une zone de texte.
+5.L'utilisateur peut également choisir de convertir le résultat en majuscules ou en minuscules à l'aide d'un sélecteur déroulant.
+6.Il y a également des fonctionnalités supplémentaires pour partager le message chiffré ou déchiffré sur WhatsApp ou Facebook, ainsi que pour copier le résultat dans le presse-papiers.
+7.Pour utiliser cet algorithme, l'utilisateur doit simplement entrer une clé et un message, puis cliquer sur les boutons "Chiffrer" ou "Déchiffrer" en fonction de l'action souhaitée. Le résultat sera affiché dans la zone de texte et pourra être partagé ou copié si nécessaire.
 
 **Pourquoi Choisir Notre Outil:**
 ✨ *Facile à utiliser*
