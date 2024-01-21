@@ -81,6 +81,7 @@ body {
     display: flex;
     justify-content: space-between;
     margin-top: 15px;
+     margin-bottom: 1.6em;
   }
   .option {
     display: flex;
