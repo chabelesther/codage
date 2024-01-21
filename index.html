@@ -60,7 +60,7 @@
         <option value="lowercase">Minuscules uniquement</option>
       </select>
     </div>
-    <div class="share m-2">
+    <div class="share m-2 w-75 w-md-100">
       <p>Partager votre message : <a onclick="shareOnWhatsApp()"><i class="fab fa-whatsapp"></i></a>
         <a id="shareFacebook" onclick="shareOnFacebook()"><i class="fab fa-facebook"></i></a></p>
     </div>
@@ -115,6 +115,7 @@
                   <button class="btn " onclick="onFacebook()"><i class="fab fa-facebook-square"></i> Facebook</button>
                   <button class="btn " onclick="onWhatsapp()"><i class="fab fa-whatsapp-square"></i> WhatsApp</button>
                 </div>
+                p>Design with ❤️ by BOSSA Chabel</p>
               </section>
             
           </div>
@@ -177,6 +178,7 @@
       document.querySelector('#result').style.display = "block";
       document.querySelector('#copyButton').style.display = "initial";
       document.querySelector('.share').style.display = "flex";
+      document.querySelector('body').style.paddingBottom = "20px";
 
       // Vider le textarea avant l'animation
       resultTextarea.value = ""; // vider le textarea
